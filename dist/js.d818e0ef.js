@@ -171,9 +171,10 @@ tlOpen.add("preOpen").to(logo, 0.4, {
   y: "13%",
   ease: Power4.easeInOut
 }, "open").to(menuMiddle, 0.8, {
-  scaleY: 1,
+  scaleY: 1.2,
   ease: Power4.easeInOut
 }, "open").to(menuBottom, 0.8, {
+  scaleY: 1.3,
   y: "-114%",
   ease: Power4.easeInOut
 }, "open").fromTo(menu, 0.6, {
