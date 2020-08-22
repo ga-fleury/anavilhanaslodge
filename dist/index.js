@@ -117,165 +117,74 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/js/index.js":[function(require,module,exports) {
-//OPEN TRIGGER
-var openTrigger = $('.menu-trigger');
-var openTriggerTop = openTrigger.find('.menu-trigger-bar.top');
-var openTriggerMiddle = openTrigger.find('.menu-trigger-bar.middle');
-var openTriggerBottom = openTrigger.find('.menu-trigger-bar.bottom'); //CLOSE TRIGGER
+})({"C:/Users/Gabriel Oliveira/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-var closeTrigger = $('.close-trigger');
-var closeTriggerLeft = closeTrigger.find('.close-trigger-bar.left');
-var closeTriggerRight = closeTrigger.find('.close-trigger-bar.right'); //LOGO
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
 
-var logo = $('.logo'); //MENU
+  return bundleURL;
+}
 
-var menuContainer = $('.menu-container');
-var menu = $('.menu');
-var menuTop = $('.menu-bg.top');
-var menuMiddle = $('.menu-bg.middle');
-var menuBottom = $('.menu-bg.bottom'); //TL
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-var tlOpen = new TimelineMax({
-  paused: true
-});
-var tlClose = new TimelineMax({
-  paused: true
-}); //OPEN TIMELINE
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
 
-tlOpen.add("preOpen").to(logo, 0.4, {
-  scale: 0.8,
-  opacity: 0,
-  ease: Power2.easeOut
-}, "preOpen").to(openTriggerTop, 0.4, {
-  x: "+80px",
-  y: "-80px",
-  delay: 0.1,
-  ease: Power4.easeIn,
-  onComplete: function onComplete() {
-    closeTrigger.css('z-index', '25');
-  }
-}, "preOpen").to(openTriggerMiddle, 0.4, {
-  x: "+=80px",
-  y: "-=80px",
-  ease: Power4.easeIn,
-  onComplete: function onComplete() {
-    openTrigger.css('visibility', 'hidden');
-  }
-}, "preOpen").to(openTriggerBottom, 0.4, {
-  x: "+=80px",
-  y: "-=80px",
-  delay: 0.2,
-  ease: Power4.easeIn
-}, "preOpen").add("open", "-=0.4").to(menuTop, 0.8, {
-  y: "13%",
-  ease: Power4.easeInOut
-}, "open").to(menuMiddle, 0.8, {
-  scaleY: 1.5,
-  ease: Power4.easeInOut
-}, "open").to(menuBottom, 0.8, {
-  scaleY: 1.3,
-  y: "-114%",
-  ease: Power4.easeInOut
-}, "open").fromTo(menu, 0.6, {
-  y: 30,
-  opacity: 0,
-  visibility: 'hidden'
-}, {
-  y: 0,
-  opacity: 1,
-  visibility: 'visible',
-  ease: Power4.easeOut
-}, "-=0.2").add("preClose", "-=0.8").to(closeTriggerLeft, 0.8, {
-  x: "-=100px",
-  y: "+=100px",
-  ease: Power4.easeOut
-}, "preClose").to(closeTriggerRight, 0.8, {
-  x: "+=100px",
-  y: "+=100px",
-  delay: 0.2,
-  ease: Power4.easeOut
-}, "preClose"); //CLOSE TIMELINE
+  return '/';
+}
 
-tlClose.add("close").to(menuTop, 0.2, {
-  backgroundColor: "#46ad95",
-  ease: Power4.easeInOut,
-  onComplete: function onComplete() {
-    logo.css('z-index', '26');
-    closeTrigger.css('z-index', '5');
-    openTrigger.css('visibility', 'visible');
-  }
-}, "close").to(menuMiddle, 0.2, {
-  backgroundColor: "#46ad95",
-  ease: Power4.easeInOut
-}, "close").to(menuBottom, 0.2, {
-  backgroundColor: "#46ad95",
-  ease: Power4.easeInOut
-}, "close").to(menu, 0.6, {
-  y: 20,
-  opacity: 0,
-  ease: Power4.easeOut,
-  onComplete: function onComplete() {
-    menu.css('visibility', 'hidden');
-  }
-}, "close").to(logo, 0.8, {
-  scale: 1,
-  opacity: 1,
-  ease: Power4.easeInOut
-}, "close", "+=0.2").to(menuTop, 0.8, {
-  y: "-113%",
-  ease: Power4.easeInOut
-}, "close", "+=0.2").to(menuMiddle, 0.8, {
-  scaleY: 0,
-  ease: Power4.easeInOut
-}, "close", "+=0.2").to(menuBottom, 0.8, {
-  y: "23%",
-  ease: Power4.easeInOut,
-  onComplete: function onComplete() {
-    menuTop.css('background-color', '#46ad95');
-    menuMiddle.css('background-color', '#46ad95');
-    menuBottom.css('background-color', '#46ad95');
-  }
-}, "close", "+=0.2").to(closeTriggerLeft, 0.2, {
-  x: "+=100px",
-  y: "-=100px",
-  ease: Power4.easeIn
-}, "close").to(closeTriggerRight, 0.2, {
-  x: "-=100px",
-  y: "-=100px",
-  delay: 0.1,
-  ease: Power4.easeIn
-}, "close").to(openTriggerTop, 1, {
-  x: "-=80px",
-  y: "+=80px",
-  delay: 0.2,
-  ease: Power4.easeOut
-}, "close").to(openTriggerMiddle, 1, {
-  x: "-=80px",
-  y: "+=80px",
-  ease: Power4.easeOut
-}, "close").to(openTriggerBottom, 1, {
-  x: "-=80px",
-  y: "+=80px",
-  delay: 0.1,
-  ease: Power4.easeOut
-}, "close"); //EVENTS
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
 
-openTrigger.on('click', function () {
-  if (tlOpen.progress() < 1) {
-    tlOpen.play();
-  } else {
-    tlOpen.restart();
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"C:/Users/Gabriel Oliveira/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
   }
-});
-closeTrigger.on('click', function () {
-  if (tlClose.progress() < 1) {
-    tlClose.play();
-  } else {
-    tlClose.restart();
-  }
-});
-},{}],"C:/Users/Gabriel Oliveira/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"C:/Users/Gabriel Oliveira/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"C:/Users/Gabriel Oliveira/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -479,4 +388,4 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/Gabriel Oliveira/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/index.js"], null)
+},{}]},{},["C:/Users/Gabriel Oliveira/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)

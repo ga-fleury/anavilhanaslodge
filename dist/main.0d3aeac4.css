@@ -105,13 +105,12 @@ body {
 
 .logo {
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 200px;
+  height: 200px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -52px;
-  margin-left: -32px;
+  transform: translate(-50%, -50%);
   text-align: center;
   z-index: 10;
 }
@@ -215,7 +214,6 @@ body {
   transform: rotate(-45deg) scaleY(0);
 }
 .menu-bg.top {
-  left: -34%;
   top: 0;
   transform: rotate(-45deg) translateY(-152%);
 }
@@ -223,6 +221,10 @@ body {
   top: 105%;
   transform: rotate(-45deg) translateY(25%);
   left: -20%;
+}
+
+.loguinho {
+  width: 100%;
 }
 
 #links {

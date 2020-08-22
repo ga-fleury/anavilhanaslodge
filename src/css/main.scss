@@ -185,13 +185,12 @@ box-shadow: 0px 9px 13px 0px $black-30;
 
 .logo {
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 200px;
+  height: 200px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -52px;
-  margin-left: -32px;
+  transform: translate(-50%,-50%);
   text-align: center;
   z-index: 10;
   
@@ -303,7 +302,7 @@ box-shadow: 0px 9px 13px 0px $black-30;
     transform: rotate(-45deg) scaleY(0);
   }
   &.top {
-    left: -34%;
+    // left: -34%;
     top: 0;
   transform: rotate(-45deg) translateY(-152%);
     //top: -25%;
@@ -314,6 +313,10 @@ box-shadow: 0px 9px 13px 0px $black-30;
   transform: rotate(-45deg) translateY(25%);
     left: -20%;
   }
+}
+
+.loguinho {
+  width: 100%;
 }
 
 #links{position:absolute;bottom:0px;left:0px;width:100%;height:50px;font-size:13px;font-family:tahoma;color:#fff;}
